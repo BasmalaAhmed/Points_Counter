@@ -1,3 +1,5 @@
+import 'package:basketball_counter/cubit/counter_cubit.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:basketball_counter/home_view.dart';
 import 'package:flutter/material.dart';
 
@@ -10,10 +12,18 @@ class BasketballCounter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.black, brightness: Brightness.dark)),
-      home: HomeView(),
+    return BlocProvider(
+      create: (context) => CounterCubit(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.black,
+            brightness: Brightness.dark,
+          ),
+        ),
+        home: HomeView(),
+      ),
     );
   }
 }
