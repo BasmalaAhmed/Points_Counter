@@ -12,7 +12,7 @@ class BasketballCounter extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple, brightness: Brightness.dark)),
+      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.black, brightness: Brightness.dark)),
       home: HomeView(),
     );
   }
