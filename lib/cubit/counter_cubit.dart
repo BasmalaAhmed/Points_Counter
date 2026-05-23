@@ -3,7 +3,7 @@ import 'package:bloc/bloc.dart';
 
 
 class CounterCubit extends Cubit<CounterState> {
-  CounterCubit() : super(CounterAIncrementState());
+  CounterCubit() : super(CounterIncrementState());
 
   int teamAPoints = 0;
   int teamBPoints = 0;
@@ -12,11 +12,17 @@ class CounterCubit extends Cubit<CounterState> {
 
     if(team == 'A'){
       teamAPoints += buttonNum; 
-      emit(CounterAIncrementState());
+      emit(CounterIncrementState());
     }
     else{
       teamBPoints += buttonNum;
-      emit(CounterBIncrementState());
+      emit(CounterIncrementState());
     }
+  }
+
+  void teamReset (){
+    teamAPoints = 0;
+      teamBPoints = 0;
+      emit(CounterResetState());
   }
 }
